@@ -11,6 +11,7 @@ import {
   Text,
   StyleSheet,
   View,
+  ScrollView,
   TouchableWithoutFeedback,
   Image,
   TextInput,
@@ -101,7 +102,9 @@ export default class ReputationRequest extends Component<Props> {
 
   render() {
     return (
-      <View style={{ flex: 1, padding: 20, alignItems: 'center' }}>
+      <View style={{ flex: 1, width: '100%' }}>
+        <ScrollView contentContainerStyle={{ width: '100%', flexGrow: 1, paddingTop: 20, paddingLeft: 20, paddingRight: 20, paddingBottom: 20, flexDirection: 'column', justifyContent: 'space-between'}}>
+        <View style={{ alignItems: 'center' }}>
         <Image
           source={require('../Assets/road-ahead.png')}
           style={{
@@ -148,6 +151,9 @@ export default class ReputationRequest extends Component<Props> {
             <Text style={{ fontWeight: '600', fontSize: 15 }}>REP</Text>
           </View>
         </View>
+      </View>
+
+      <View style={{ paddingTop: 20}}>
         <Button
           onPress={this.submit}
           style={{
@@ -157,13 +163,12 @@ export default class ReputationRequest extends Component<Props> {
             flexDirection: 'row',
             width: 250,
             paddingVertical: 15,
-            position: 'absolute',
-            bottom: 50,
-            zIndex: 1000,
           }}
         >
           <Text style={{ color: 'white', fontWeight: '600', fontSize: 15, margin: 5 }}>Submit</Text>
         </Button>
+        </View>
+        </ScrollView>
       </View>
     );
   }

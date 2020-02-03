@@ -1,18 +1,15 @@
 /* eslint-disable import/prefer-default-export */
 
-import React, { Component } from 'react';
-import {View} from 'react-native'
+import React, { Component, Fragment } from 'react';
+import { View, SafeAreaView } from 'react-native'
 import { ApolloProvider } from 'react-apollo';
-import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import { ApolloClientConfig as client } from './Config';
 // eslint-disable-next-line no-unused-vars
-import { NavigationBar } from '../../AliceCore/Components/index';
 
 import {
   DAOstack,
-  History,
-  Holders,
   NewProposal,
   Proposals,
   ReputationRequest,
@@ -46,13 +43,18 @@ class DAOstackContainer extends Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
-        <ApolloProvider client={client}>
-          <App
-            navigation={this.props.navigation}
-          />
-        </ApolloProvider>
-      </View>
+      <Fragment>
+        <SafeAreaView></SafeAreaView>
+        <SafeAreaView style={{flex: 1}}>
+          <View style={{flex: 1, marginBottom: 70}}>
+            <ApolloProvider client={client}>
+              <App
+                navigation={this.props.navigation}
+              />
+            </ApolloProvider>
+          </View>
+        </SafeAreaView>
+      </Fragment>
     );
   }
 }

@@ -71,10 +71,11 @@ export default class Proposal extends Component {
         )
       }
     };
+    const { backgroundColor } = this.props.navigation.state.params;
     return (
       <TouchableOpacity
         key={key}
-        onPress={() => this.props.navigation.navigate('DAOstack/DetailedProposal', {proposal, proposer, beneficiary, viewerIsMember, daoId})}
+        onPress={() => this.props.navigation.navigate('DAOstack/DetailedProposal', {proposal, proposer, beneficiary, viewerIsMember, daoId, backgroundColor})}
         style={styles.daoBox}
       >
         <View style={{ flex: 1, padding: 15,}}>

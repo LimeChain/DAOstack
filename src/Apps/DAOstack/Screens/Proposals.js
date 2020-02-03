@@ -156,7 +156,7 @@ export default class Proposals extends Component {
     let regularAmount = 1;
     let overtimeAmount = 1;
     return (
-      <View style={{ flex: 1, paddingTop: 50 }}>
+      <View style={{ flex: 1 }}>
         <Subscription subscription={PROPOSALS_SUBSCRIPTION} variables={{ id: dao.id }}>
           {({ loading, error, data }) => {
             if (error) return <Text>Can't fetch Proposals</Text>;
